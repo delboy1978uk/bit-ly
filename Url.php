@@ -17,9 +17,10 @@ class Del_Bitly_Url
      * @param string $format
      * @return mixed
      */
-    public function shorten($url,$format='txt') {
-        $connectURL = 'http://api.bit.ly/v3/shorten?login=allagents&apiKey=R_1478109b0aefed2e6b39f8494170bde7&uri='.urlencode($url).'&format='.$format;
-        return $this->curl_get_result($connectURL);
+    public function shorten($url,$format = 'txt')
+    {
+        $connectURL = 'http://api.bit.ly/v3/shorten?login='.$this->login.'&apiKey='.$this->oauth_key.'7&uri='.urlencode($url).'&format='.$format;
+        return $this->curlGetResult($connectURL);
     }
 
     /**
@@ -39,14 +40,11 @@ class Del_Bitly_Url
         $this->oauth_key = $key;
     }
 
-
-
-
     /**
      * @param $url
      * @return mixed
      */
-    private function curl_get_result($url) {
+    private function curlGetResult($url) {
         $ch = curl_init();
         $timeout = 5;
         curl_setopt($ch,CURLOPT_URL,$url);
