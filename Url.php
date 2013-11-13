@@ -19,7 +19,7 @@ class Del_Bitly_Url
      */
     public function shorten($url,$format = 'txt')
     {
-        $connectURL = 'http://api.bit.ly/v3/shorten?login='.$this->login.'&apiKey='.$this->oauth_key.'7&uri='.urlencode($url).'&format='.$format;
+        $connectURL = 'http://api.bit.ly/v3/shorten?login='.$this->login.'&apiKey='.$this->oauth_key.'&uri='.urlencode($url).'&format='.$format;
         return $this->curlGetResult($connectURL);
     }
 
